@@ -16,6 +16,9 @@ let db: Db;
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "connected" : "disconnected" });
 });
+app.get("/api/ck", (_req: Request, res: Response) => {
+  res.json({ status: "ok", db: db ? "chandan connected" : "chandan disconnected" });
+});
 
 async function start() {
   try {
