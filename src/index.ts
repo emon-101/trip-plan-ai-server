@@ -14,7 +14,7 @@ app.use(express.json());
 let db: Db;
 
 app.get("/", (_req: Request, res: Response) => {
-  res.json('foo, bar! updated');
+  res.json('foo, bar! updated V2');
 });
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "connected" : "disconnected" });
@@ -72,6 +72,31 @@ app.get("/api/users", async (_req: Request, res: Response) => {
   }
 });
 
+// endpoint to fetch featured reviews
+app.get("/api/featured-reviews", async (_req: Request, res: Response) => {
+  try {
+    if (!db) {
+      return res.status(500).json({ success: false, message: "Database not ready" });
+    }
+
+    const featuredReviews = await db
+      .collection("feature-review")
+      .find()
+      .toArray();
+
+    res.status(200).json({
+      success: true,
+      message: "Featured reviews fetched successfully",
+      data: featuredReviews,
+    });
+  } catch (error) {
+    console.error("Failed to fetch featured reviews:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch featured reviews",
+    });
+  }
+});
 
 async function start() {
   try {
