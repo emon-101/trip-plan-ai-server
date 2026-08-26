@@ -13,11 +13,39 @@ app.use(express.json());
 
 let db: Db;
 
+app.get("/", (_req: Request, res: Response) => {
+  res.json('foo, bar!');
+});
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "connected" : "disconnected" });
 });
 app.get("/api/ck", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "chandan connected" : "chandan disconnected" });
+});
+
+// Endpoint to fetch travel categories
+
+app.get("/api/travel-categories", async (_req: Request, res: Response) => {
+  try {
+    const travelCategories = await db 
+      .collection("TravelCategories")
+      .find({ isActive: true })
+      .sort({ sortOrder: 1 })
+      .toArray();
+
+    res.status(200).json({
+      success: true,
+      message: "Travel categories fetched successfully",
+      data: travelCategories,
+    });
+  } catch (error) {
+    console.error("Failed to fetch travel categories:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch travel categories",
+    });
+  }
 });
 
 async function start() {
