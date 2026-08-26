@@ -14,7 +14,7 @@ app.use(express.json());
 let db: Db;
 
 app.get("/", (_req: Request, res: Response) => {
-  res.json('foo, bar!');
+  res.json('foo, bar! updated');
 });
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "connected" : "disconnected" });
@@ -24,10 +24,9 @@ app.get("/api/ck", (_req: Request, res: Response) => {
 });
 
 // Endpoint to fetch travel categories
-
 app.get("/api/travel-categories", async (_req: Request, res: Response) => {
   try {
-    const travelCategories = await db 
+    const travelCategories = await db
       .collection("TravelCategories")
       .find({ isActive: true })
       .sort({ sortOrder: 1 })
@@ -47,6 +46,32 @@ app.get("/api/travel-categories", async (_req: Request, res: Response) => {
     });
   }
 });
+
+// endpoint to fetch users
+app.get("/api/users", async (_req: Request, res: Response) => {
+  try {
+
+    if (!db) {
+      return res.status(500).json({ success: false, message: "Database not ready" });
+    }
+
+    // const usersCollection = db.collection("user");
+    const users = await db.collection("user").find().toArray();
+    console.log(users);
+    res.status(200).json({
+      success: true,
+      message: "Users fetched successfully",
+      data: users,
+    });
+  } catch (error) {
+    console.error("Failed to fetch users:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch users",
+    });
+  }
+});
+
 
 async function start() {
   try {
