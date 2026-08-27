@@ -98,6 +98,7 @@ app.get("/api/featured-reviews", async (_req: Request, res: Response) => {
   }
 });
 
+
 async function start() {
   try {
     const client = new MongoClient(MONGODB_URI);
