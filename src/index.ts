@@ -98,6 +98,28 @@ app.get("/api/featured-reviews", async (_req: Request, res: Response) => {
   }
 });
 
+app.get("/api/destinations", async (req: Request, res: Response) => {
+  try {
+    if (!db) {
+      return res.status(500).json({ success: false, message: "Database not ready" });
+    }
+
+    const destinations = await db.collection("destinations").find().toArray();
+
+    res.status(200).json({
+      success: true,
+      message: "Destinations fetched successfully",
+      data: destinations,
+    });
+  } catch (error) {
+    console.error("Failed to fetch destinations:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch destinations",
+    });
+  }
+});
+
 
 async function start() {
   try {
