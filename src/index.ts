@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express, { Request, Response } from "express";
-import { MongoClient, Db } from "mongodb";
+import { MongoClient, Db, ObjectId } from "mongodb";
 import cors from "cors";
 
 const app = express();
@@ -120,6 +120,32 @@ app.get("/api/destinations", async (req: Request, res: Response) => {
   }
 });
 
+app.get("/api/destinations/:id", async (req: Request, res: Response) => {
+  try {
+    if (!db) {
+      return res.status(500).json({ success: false, message: "Database not ready" });
+    }
+
+    const { id } = req.params;
+    const destination = await db.collection("destinations").findOne({ _id: new ObjectId(id as string) });
+
+    if (!destination) {
+      return res.status(404).json({ success: false, message: "Destination not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Destination fetched successfully",
+      data: destination,
+    });
+  } catch (error) {
+    console.error("Failed to fetch destination:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch destination",
+    });
+  }
+});
 
 async function start() {
   try {
