@@ -98,6 +98,28 @@ app.get("/api/featured-reviews", async (_req: Request, res: Response) => {
   }
 });
 
+app.get("/api/card-destinations", async (_req: Request, res: Response) => {
+  try {
+    if (!db) {
+      return res.status(500).json({ success: false, message: "Database not ready" });
+    }
+
+    const cardDestinations = await db.collection("card-destination").find().toArray();
+
+    res.status(200).json({
+      success: true,
+      message: "Card destinations fetched successfully",
+      data: cardDestinations,
+    });
+  } catch (error) {
+    console.error("Failed to fetch card destinations:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch card destinations",
+    });
+  }
+});
+
 app.get("/api/destinations", async (req: Request, res: Response) => {
   try {
     if (!db) {
@@ -120,14 +142,14 @@ app.get("/api/destinations", async (req: Request, res: Response) => {
   }
 });
 
-app.get("/api/destinations/:id", async (req: Request, res: Response) => {
+app.get("/api/destinations/:slug", async (req: Request, res: Response) => {
   try {
     if (!db) {
       return res.status(500).json({ success: false, message: "Database not ready" });
     }
 
-    const { id } = req.params;
-    const destination = await db.collection("destinations").findOne({ _id: new ObjectId(id as string) });
+    const { slug } = req.params;
+    const destination = await db.collection("destinations").findOne({ slug });
 
     if (!destination) {
       return res.status(404).json({ success: false, message: "Destination not found" });
