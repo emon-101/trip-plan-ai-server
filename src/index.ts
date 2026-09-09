@@ -169,28 +169,36 @@ app.get("/api/destinations/:slug", async (req: Request, res: Response) => {
   }
 });
 
- // add destination to bookmark
-    app.post('/api/destinations/bookmark', async (req: Request, res: Response) => {
-      try {
-        const bookmark = req.body;
+// add destination to bookmark
+app.post('/api/destinations/bookmark', async (req: Request, res: Response) => {
+  try {
+    const bookmark = req.body;
 
-        const existing = await db.collection("bookmarks").findOne({
-          user: bookmark.user,
-          destinationId: bookmark.destinationId
-        });
-
-        if (existing) {
-          return res.status(409).json({ error: true, message: "Already in bookmark" });
-        }
-
-        const result = await db.collection("bookmarks").insertOne(bookmark);
-        res.status(200).json(result);
-
-      } catch (error) {
-        console.error("Bookmark Error:", error);
-        res.status(500).json({ error: true, message: "Internal server error" });
-      }
+    const existing = await db.collection("bookmarks").findOne({
+      user: bookmark.user,
+      destinationId: bookmark.destinationId
     });
+
+    if (existing) {
+      return res.status(409).json({ error: true, message: "Already in bookmark" });
+    }
+
+    const result = await db.collection("bookmarks").insertOne(bookmark);
+    res.status(200).json(result);
+
+  } catch (error) {
+    console.error("Bookmark Error:", error);
+    res.status(500).json({ error: true, message: "Internal server error" });
+  }
+});
+
+// get bookmarks of a signle user
+app.get('/api/destinations/bookmark/:userId', async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+  const query = { user: userId };
+  const bookmarks = await db.collection("bookmarks").find(query).toArray();
+  res.json(bookmarks);
+});
 
 async function start() {
   try {
