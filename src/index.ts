@@ -2,14 +2,51 @@ import "dotenv/config";
 import express, { Request, Response } from "express";
 import { MongoClient, Db } from "mongodb";
 import cors from "cors";
+import { toNodeHandler } from "better-auth/node";
+import { auth } from "./config/auth";
+
+import { destinationsRouter } from "./routes/destinations";
+import { reviewsRouter } from "./routes/reviews";
+import { tripsRouter } from "./routes/trips";
+import { categoriesRouter } from "./routes/categories";
+import { bookmarksRouter } from "./routes/bookmarks";
+import { usersRouter } from "./routes/users";
+import { statsRouter } from "./routes/stats";
+import { expensesRouter } from "./routes/expenses";
+import { storiesRouter } from "./routes/stories";
+import { settingsRouter } from "./routes/settings";
+import { hotelsRouter } from "./routes/hotels";
+import { foodRouter } from "./routes/food";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI as string;
 const DB_NAME = process.env.DB_NAME as string;
 
-app.use(cors());
+app.use(cors({
+  origin: function (origin, callback) {
+    callback(null, true); // Allow any origin in development
+  },
+  credentials: true
+}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use((req, _res, next) => {
+  console.log("[Request]", req.method, req.url, req.originalUrl);
+  next();
+});
+
+const authHandler = toNodeHandler(auth);
+
+app.all("/api/auth/*path", async (req, res, next) => {
+  try {
+    await authHandler(req, res);
+  } catch (error) {
+    console.error("[Better Auth Error]", error);
+    next(error);
+  }
+});
 
 let db: Db;
 
@@ -23,103 +60,19 @@ app.get("/api/ck", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "chandan connected" : "chandan disconnected" });
 });
 
-// Endpoint to fetch travel categories
-app.get("/api/travel-categories", async (_req: Request, res: Response) => {
-  try {
-    const travelCategories = await db
-      .collection("TravelCategories")
-      .find({ isActive: true })
-      .sort({ sortOrder: 1 })
-      .toArray();
-
-    res.status(200).json({
-      success: true,
-      message: "Travel categories fetched successfully",
-      data: travelCategories,
-    });
-  } catch (error) {
-    console.error("Failed to fetch travel categories:", error);
-
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch travel categories",
-    });
-  }
-});
-
-// endpoint to fetch users
-app.get("/api/users", async (_req: Request, res: Response) => {
-  try {
-
-    if (!db) {
-      return res.status(500).json({ success: false, message: "Database not ready" });
-    }
-
-    // const usersCollection = db.collection("user");
-    const users = await db.collection("user").find().toArray();
-    console.log(users);
-    res.status(200).json({
-      success: true,
-      message: "Users fetched successfully",
-      data: users,
-    });
-  } catch (error) {
-    console.error("Failed to fetch users:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch users",
-    });
-  }
-});
-
-// endpoint to fetch featured reviews
-app.get("/api/featured-reviews", async (_req: Request, res: Response) => {
-  try {
-    if (!db) {
-      return res.status(500).json({ success: false, message: "Database not ready" });
-    }
-
-    const featuredReviews = await db
-      .collection("feature-review")
-      .find()
-      .toArray();
-
-    res.status(200).json({
-      success: true,
-      message: "Featured reviews fetched successfully",
-      data: featuredReviews,
-    });
-  } catch (error) {
-    console.error("Failed to fetch featured reviews:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch featured reviews",
-    });
-  }
-});
-
-app.get("/api/destinations", async (req: Request, res: Response) => {
-  try {
-    if (!db) {
-      return res.status(500).json({ success: false, message: "Database not ready" });
-    }
-
-    const destinations = await db.collection("destinations").find().toArray();
-
-    res.status(200).json({
-      success: true,
-      message: "Destinations fetched successfully",
-      data: destinations,
-    });
-  } catch (error) {
-    console.error("Failed to fetch destinations:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch destinations",
-    });
-  }
-});
-
+// Mount routers
+app.use("/api/destinations", (req, res, next) => destinationsRouter(db)(req, res, next));
+app.use("/api/reviews", (req, res, next) => reviewsRouter(db)(req, res, next));
+app.use("/api/trips", (req, res, next) => tripsRouter(db)(req, res, next));
+app.use("/api/travel-categories", (req, res, next) => categoriesRouter(db)(req, res, next));
+app.use("/api/bookmarks", (req, res, next) => bookmarksRouter(db)(req, res, next));
+app.use("/api/users", (req, res, next) => usersRouter(db)(req, res, next));
+app.use("/api/stats", (req, res, next) => statsRouter(db)(req, res, next));
+app.use("/api/expenses", (req, res, next) => expensesRouter(db)(req, res, next));
+app.use("/api/stories", (req, res, next) => storiesRouter(db)(req, res, next));
+app.use("/api/settings", (req, res, next) => settingsRouter(db)(req, res, next));
+app.use("/api/hotels", (req, res, next) => hotelsRouter(db)(req, res, next));
+app.use("/api/food", (req, res, next) => foodRouter(db)(req, res, next));
 
 async function start() {
   try {
