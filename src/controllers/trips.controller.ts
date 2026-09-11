@@ -15,6 +15,26 @@ export const getTrips = (db: Db) => async (req: Request, res: Response) => {
   }
 };
 
+export const getTripById = (db: Db) => async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    let query;
+    try {
+      query = { _id: new ObjectId(id) };
+    } catch (e) {
+      query = { localId: id };
+    }
+    const trip = await db.collection("trips").findOne(query);
+    if (!trip) {
+      return res.status(404).json({ success: false, message: "Trip not found" });
+    }
+    res.status(200).json({ success: true, data: trip });
+  } catch (error) {
+    console.error("Failed to fetch trip by id:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};
+
 export const getUserTrips = (db: Db) => async (req: Request, res: Response) => {
   try {
     const { userId } = req.params;
