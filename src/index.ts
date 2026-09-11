@@ -5,18 +5,18 @@ import cors from "cors";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./config/auth";
 
-import { destinationsRouter } from "./routes/destinations";
-import { reviewsRouter } from "./routes/reviews";
-import { tripsRouter } from "./routes/trips";
-import { categoriesRouter } from "./routes/categories";
-import { bookmarksRouter } from "./routes/bookmarks";
-import { usersRouter } from "./routes/users";
-import { statsRouter } from "./routes/stats";
-import { expensesRouter } from "./routes/expenses";
-import { storiesRouter } from "./routes/stories";
-import { settingsRouter } from "./routes/settings";
-import { hotelsRouter } from "./routes/hotels";
-import { foodRouter } from "./routes/food";
+import { destinationsRouter } from "./routes/destinations.route";
+import { reviewsRouter } from "./routes/reviews.route";
+import { tripsRouter } from "./routes/trips.route";
+import { categoriesRouter } from "./routes/travel-categories.route";
+import { bookmarksRouter } from "./routes/bookmarks.route";
+import { usersRouter } from "./routes/users.route";
+import { statsRouter } from "./routes/stats.route";
+import { expensesRouter } from "./routes/expenses.route";
+import { storiesRouter } from "./routes/stories.route";
+import { settingsRouter } from "./routes/settings.route";
+import { hotelsRouter } from "./routes/hotels.route";
+import { foodRouter } from "./routes/food.route";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -63,6 +63,13 @@ app.get("/api/ck", (_req: Request, res: Response) => {
 // Mount routers
 app.use("/api/destinations", (req, res, next) => destinationsRouter(db)(req, res, next));
 app.use("/api/reviews", (req, res, next) => reviewsRouter(db)(req, res, next));
+app.use("/api/featured-reviews", (req, res, next) => {
+  // Map featured-reviews to the same controller logic or route
+  // For simplicity, we can just use a quick handler or export it
+  import("./controllers/reviews.controller").then(({ getFeaturedReviews }) => {
+    getFeaturedReviews(db)(req, res);
+  });
+});
 app.use("/api/trips", (req, res, next) => tripsRouter(db)(req, res, next));
 app.use("/api/travel-categories", (req, res, next) => categoriesRouter(db)(req, res, next));
 app.use("/api/bookmarks", (req, res, next) => bookmarksRouter(db)(req, res, next));
