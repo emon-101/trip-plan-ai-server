@@ -84,3 +84,33 @@ export const deleteDestination = (db: Db) => async (req: Request, res: Response)
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
+
+export const getPlaceBySlug = (db: Db) => async (req: Request, res: Response) => {
+  try {
+    const { slug } = req.params;
+    // Find the destination that contains this place
+    const destination = await db.collection("destinations").findOne({
+      "placesToExplore.slug": slug
+    });
+
+    if (!destination) {
+      return res.status(404).json({ success: false, message: "Not Found" });
+    }
+
+    const place = destination.placesToExplore.find((p: any) => p.slug === slug);
+    
+    res.status(200).json({
+      success: true,
+      data: {
+        place,
+        destination: {
+          slug: destination.slug,
+          name: destination.name
+        }
+      }
+    });
+  } catch (error) {
+    console.error("Failed to fetch place:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};

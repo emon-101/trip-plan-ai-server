@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { MongoClient, Db } from "mongodb";
 import cors from "cors";
 import { toNodeHandler } from "better-auth/node";
@@ -17,6 +17,8 @@ import { storiesRouter } from "./routes/stories.route";
 import { settingsRouter } from "./routes/settings.route";
 import { hotelsRouter } from "./routes/hotels.route";
 import { foodRouter } from "./routes/food.route";
+import { notificationsRouter } from "./routes/notifications.route";
+import { getFeaturedReviews } from "./controllers/reviews.controller";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,8 +31,8 @@ app.use(cors({
   },
   credentials: true
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 app.use((req, _res, next) => {
   console.log("[Request]", req.method, req.url, req.originalUrl);
@@ -48,6 +50,19 @@ app.all("/api/auth/*path", async (req, res, next) => {
   }
 });
 
+app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
+  if (!req.path.startsWith("/api/auth")) {
+    next();
+    return;
+  }
+
+  console.error("[Auth Error Response]", error);
+  res.status(500).json({
+    code: "INTERNAL_SERVER_ERROR",
+    message: "The authentication service could not complete the request.",
+  });
+});
+
 let db: Db;
 
 app.get("/", (_req: Request, res: Response) => {
@@ -60,15 +75,14 @@ app.get("/api/ck", (_req: Request, res: Response) => {
   res.json({ status: "ok", db: db ? "chandan connected" : "chandan disconnected" });
 });
 
+import { dashboardRouter } from "./routes/dashboard.route";
+
 // Mount routers
+app.use("/api/dashboard", (req, res, next) => dashboardRouter(db)(req, res, next));
 app.use("/api/destinations", (req, res, next) => destinationsRouter(db)(req, res, next));
 app.use("/api/reviews", (req, res, next) => reviewsRouter(db)(req, res, next));
 app.use("/api/featured-reviews", (req, res, next) => {
-  // Map featured-reviews to the same controller logic or route
-  // For simplicity, we can just use a quick handler or export it
-  import("./controllers/reviews.controller").then(({ getFeaturedReviews }) => {
-    getFeaturedReviews(db)(req, res);
-  });
+  getFeaturedReviews(db)(req, res).catch(next);
 });
 app.use("/api/trips", (req, res, next) => tripsRouter(db)(req, res, next));
 app.use("/api/travel-categories", (req, res, next) => categoriesRouter(db)(req, res, next));
@@ -80,6 +94,7 @@ app.use("/api/stories", (req, res, next) => storiesRouter(db)(req, res, next));
 app.use("/api/settings", (req, res, next) => settingsRouter(db)(req, res, next));
 app.use("/api/hotels", (req, res, next) => hotelsRouter(db)(req, res, next));
 app.use("/api/food", (req, res, next) => foodRouter(db)(req, res, next));
+app.use("/api/notifications", (req, res, next) => notificationsRouter(db)(req, res, next));
 
 async function start() {
   try {
