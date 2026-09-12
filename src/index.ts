@@ -1,9 +1,12 @@
+import { aiRouter } from "./routes/ai.route";
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import { MongoClient, Db } from "mongodb";
 import cors from "cors";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./config/auth";
+import "dotenv/config";
+import { aiRouter } from "./routes/ai.route";
 
 import { destinationsRouter } from "./routes/destinations.route";
 import { reviewsRouter } from "./routes/reviews.route";
@@ -78,6 +81,7 @@ app.get("/api/ck", (_req: Request, res: Response) => {
 import { dashboardRouter } from "./routes/dashboard.route";
 
 // Mount routers
+
 app.use("/api/dashboard", (req, res, next) => dashboardRouter(db)(req, res, next));
 app.use("/api/destinations", (req, res, next) => destinationsRouter(db)(req, res, next));
 app.use("/api/reviews", (req, res, next) => reviewsRouter(db)(req, res, next));
@@ -102,6 +106,7 @@ async function start() {
     await client.connect();
     db = client.db(DB_NAME);
     console.log("MongoDB connected");
+    app.use("/api/ai", aiRouter(db));
 
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
