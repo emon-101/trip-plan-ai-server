@@ -57,11 +57,6 @@ export const getUserBookings = (db: Db) => async (req: Request, res: Response) =
       return res.status(400).json({ success: false, message: "User ID is required" });
     }
 
-    // Usually, the userId from auth might be passed from frontend. 
-    // Wait, the client is sending `customer.email`. We can fetch by email if we don't have a strict userId yet.
-    // The tour booking created in previous step didn't explicitly take `userId`, it took `customer: { email, name, phone }`.
-    // Let's fetch by email since it's the most reliable unique identifier currently saved.
-    
     const { email } = req.query;
 
     let query: any = {};
@@ -106,13 +101,8 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
       return res.status(400).json({ success: false, message: "Booking is already paid" });
     }
 
-    // MOCK SSLCOMMERZ INTEGRATION
-    // Normally here we would initialize the SSLCommerz session and get a Gateway URL.
-    // We will return a mock URL for now.
-    
     const mockPaymentUrl = `/dashboard/my-bookings?payment=success&bookingId=${bookingId}`;
 
-    // Optionally update status to "Payment Pending"
     await db.collection("tour-bookings").updateOne(
       { _id: new ObjectId(bookingId) },
       { $set: { paymentStatus: "Processing" } }
@@ -129,35 +119,50 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
   }
 };
 
-export const confirmPayment = (db: Db) => async (req: Request, res: Response) => {
-  try {
-    const { bookingId } = req.params;
+// Confirm Payment (Mock Endpoint)
+export const confirmPayment = (db: Db) => {
+  return async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { bookingId } = req.params;
 
-    if (!bookingId || !ObjectId.isValid(bookingId)) {
-      return res.status(400).json({ success: false, message: "Invalid booking ID" });
+      const result = await db.collection("tour-bookings").updateOne(
+        { _id: new ObjectId(bookingId) },
+        { 
+          $set: { 
+            paymentStatus: "Paid",
+            status: "Confirmed",
+            updatedAt: new Date()
+          } 
+        }
+      );
+
+      if (result.matchedCount === 0) {
+        res.status(404).json({ success: false, message: "Booking not found" });
+        return;
+      }
+
+      res.status(200).json({ success: true, message: "Payment confirmed successfully" });
+    } catch (error) {
+      console.error("Error confirming payment:", error);
+      res.status(500).json({ success: false, message: "Internal server error" });
     }
+  };
+};
 
-    const booking = await db.collection("tour-bookings").findOne({ _id: new ObjectId(bookingId) });
-
-    if (!booking) {
-      return res.status(404).json({ success: false, message: "Booking not found" });
+// Get All Bookings for Admin
+export const getAllBookings = (db: Db) => {
+  return async (req: Request, res: Response): Promise<void> => {
+    try {
+      const bookings = await db
+        .collection("tour-bookings")
+        .find()
+        .sort({ createdAt: -1 })
+        .toArray();
+      
+      res.status(200).json({ success: true, data: bookings });
+    } catch (error) {
+      console.error("Error fetching all bookings:", error);
+      res.status(500).json({ success: false, message: "Internal server error" });
     }
-
-    if (booking.paymentStatus === "Paid") {
-      return res.status(400).json({ success: false, message: "Booking is already paid" });
-    }
-
-    await db.collection("tour-bookings").updateOne(
-      { _id: new ObjectId(bookingId) },
-      { $set: { paymentStatus: "Paid", status: "Confirmed", paidAt: new Date() } }
-    );
-
-    res.status(200).json({
-      success: true,
-      message: "Payment confirmed successfully"
-    });
-  } catch (error) {
-    console.error("Failed to confirm payment:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
-  }
+  };
 };
