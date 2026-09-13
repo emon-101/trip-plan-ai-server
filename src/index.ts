@@ -21,6 +21,9 @@ import { settingsRouter } from "./routes/settings.route";
 import { hotelsRouter } from "./routes/hotels.route";
 import { foodRouter } from "./routes/food.route";
 import { notificationsRouter } from "./routes/notifications.route";
+import { supportRouter } from "./routes/support.route";
+import { userRouter } from "./routes/user.route";
+import { tourBookingRouter } from "./routes/tour-booking.route";
 import { getFeaturedReviews } from "./controllers/reviews.controller";
 
 const app = express();
@@ -99,6 +102,9 @@ app.use("/api/settings", (req, res, next) => settingsRouter(db)(req, res, next))
 app.use("/api/hotels", (req, res, next) => hotelsRouter(db)(req, res, next));
 app.use("/api/food", (req, res, next) => foodRouter(db)(req, res, next));
 app.use("/api/notifications", (req, res, next) => notificationsRouter(db)(req, res, next));
+app.use("/api/support", (req, res, next) => supportRouter(db)(req, res, next));
+app.use("/api/user", (req, res, next) => userRouter(db)(req, res, next));
+app.use("/api/tour-bookings", (req, res, next) => tourBookingRouter(db)(req, res, next));
 
 async function start() {
   try {
