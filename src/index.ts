@@ -23,6 +23,7 @@ import { notificationsRouter } from "./routes/notifications.route";
 import { supportRouter } from "./routes/support.route";
 import { userRouter } from "./routes/user.route";
 import { tourBookingRouter } from "./routes/tour-booking.route";
+import { tourPackagesRouter } from "./routes/tour-packages.route";
 import { getFeaturedReviews } from "./controllers/reviews.controller";
 
 const app = express();
@@ -107,6 +108,7 @@ app.use("/api/notifications", (req, res, next) => notificationsRouter(db)(req, r
 app.use("/api/support", (req, res, next) => supportRouter(db)(req, res, next));
 app.use("/api/user", (req, res, next) => userRouter(db)(req, res, next));
 app.use("/api/tour-bookings", (req, res, next) => tourBookingRouter(db)(req, res, next));
+app.use("/api/tour-packages", (req, res, next) => tourPackagesRouter(db)(req, res, next));
 
 async function start() {
   try {

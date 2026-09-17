@@ -1,0 +1,1064 @@
+[
+  {
+    "id": 1,
+    "slug": "coxs-bazar-family-escape",
+    "title": "Cox’s Bazar Family Escape",
+    "destination": "Cox’s Bazar",
+    "subtitle": "Beach days, seafood nights & family comfort",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop",
+    "duration": "3 Days · 2 Nights",
+    "people": "2–5 People",
+    "price": 12500,
+    "oldPrice": 15000,
+    "company": "Travel Bangladesh",
+    "description": "Enjoy a relaxing Cox’s Bazar getaway with a comfortable hotel stay, beach time, local food and carefully planned sightseeing.",
+    "includes": [
+      "Hotel accommodation",
+      "Breakfast",
+      "Local transport",
+      "Beach sightseeing",
+      "Tour assistance"
+    ],
+    "rating": 4.9,
+    "reviews": 124,
+    "tag": "Family favourite",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 1,
+    "experience": {
+      "category": "Family & Beach",
+      "rating": 4.9,
+      "reviews": 124,
+      "highlights": [
+        "Laboni Beach",
+        "Himchari",
+        "Inani Beach",
+        "Marine Drive"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Coxs/cover-1.jpg",
+          "label": "Beach view",
+          "alt": "Cox's Bazar sea beach"
+        },
+        {
+          "src": "/assets/Coxs/Resort/Ocean Haven Resort.jpg",
+          "label": "Your stay",
+          "alt": "Ocean Haven Resort"
+        },
+        {
+          "src": "/assets/Coxs/Taste/Fresh Seafood.jpg",
+          "label": "Local food",
+          "alt": "Fresh seafood"
+        },
+        {
+          "src": "/assets/Coxs/Thinking/Marine Drive.jfif",
+          "label": "Experience",
+          "alt": "Marine Drive journey"
+        }
+      ],
+      "dayTitles": [
+        "Dhaka to the sea",
+        "Marine Drive day",
+        "Slow morning and return"
+      ],
+      "accommodation": {
+        "name": "Ocean Haven Resort or equivalent",
+        "type": "Standard family hotel · 2 nights",
+        "room": "Double or family room with 2–4 people sharing",
+        "amenities": [
+          "Wi-Fi",
+          "Air conditioning",
+          "Hot water",
+          "Lift access",
+          "Near the beach"
+        ]
+      },
+      "transport": {
+        "name": "Reserved AC coach + local microbus",
+        "type": "Dhaka return coach and sightseeing vehicle",
+        "details": [
+          "2+2 reclining seats",
+          "One baggage per traveller",
+          "Scheduled rest stops",
+          "Marine Drive vehicle"
+        ]
+      },
+      "pickup": "Arambagh, Dhaka",
+      "batches": [
+        {
+          "date": "24 Oct 2026",
+          "seats": "9 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "07 Nov 2026",
+          "seats": "12 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "21 Nov 2026",
+          "seats": "4 seats left",
+          "status": "Filling fast"
+        }
+      ],
+      "safety": [
+        "Suitable for children and senior travellers with normal mobility.",
+        "Sea swimming depends on local warning flags and weather conditions.",
+        "Guardians must supervise children at the beach and road stops."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    },
+    "travelerReview": {
+      "name": "Nusrat Jahan",
+      "initials": "NJ",
+      "destination": "Sajek Cloud Adventure",
+      "rating": "5.0",
+      "image": "/assets/Sajek/cover-2.jpg",
+      "review": "From pickup to the cloud-view stay, every detail felt organized. The itinerary gave us enough time to explore without making the trip feel rushed."
+    }
+  },
+  {
+    "id": 2,
+    "slug": "sajek-cloud-adventure",
+    "title": "Sajek Cloud Adventure",
+    "destination": "Sajek Valley",
+    "subtitle": "Clouds, sunrise & hillside stays",
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop",
+    "duration": "2 Days · 1 Night",
+    "people": "2–6 People",
+    "price": 8500,
+    "oldPrice": 10500,
+    "company": "Hill Track Tours",
+    "description": "A short Sajek escape designed for travellers who want hill views, sunrise, cloud-covered roads and a peaceful resort stay.",
+    "includes": [
+      "Resort accommodation",
+      "Transport",
+      "Sajek sightseeing",
+      "Sunrise experience",
+      "Tour coordinator"
+    ],
+    "rating": 4.8,
+    "reviews": 91,
+    "tag": "Weekend escape",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 2,
+    "experience": {
+      "category": "Weekend & Adventure",
+      "rating": 4.8,
+      "reviews": 91,
+      "highlights": [
+        "Ruilui Para",
+        "Konglak Hill",
+        "Helipad",
+        "Hazachora Waterfall"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Sajek/cover-2.jpg",
+          "label": "Valley view",
+          "alt": "Sajek valley clouds"
+        },
+        {
+          "src": "/assets/Sajek/Resort/Premium Resort.jfif",
+          "label": "Your stay",
+          "alt": "Sajek hill resort"
+        },
+        {
+          "src": "/assets/Sajek/Taste/BBQ Dinner.jfif",
+          "label": "Evening meal",
+          "alt": "Barbecue dinner"
+        },
+        {
+          "src": "/assets/Sajek/Thinking/Chander Gari Ride.jfif",
+          "label": "Hill journey",
+          "alt": "Chander Gari ride"
+        }
+      ],
+      "dayTitles": [
+        "Khagrachari to Sajek",
+        "Sunrise and return"
+      ],
+      "accommodation": {
+        "name": "Meghpunji Resort or equivalent",
+        "type": "Hill-view standard resort · 1 night",
+        "room": "Couple room or 3–4 people group sharing",
+        "amenities": [
+          "Hill-view balcony",
+          "Attached bathroom",
+          "Hot water schedule",
+          "Backup power",
+          "Dining area"
+        ]
+      },
+      "transport": {
+        "name": "Coach + reserved Chander Gari",
+        "type": "Night coach and shared 4×4 hill vehicle",
+        "details": [
+          "Reserved coach seat",
+          "12–14 people per hill vehicle",
+          "Army escort timing",
+          "Hill-road rest stops"
+        ]
+      },
+      "pickup": "Fakirapool, Dhaka",
+      "batches": [
+        {
+          "date": "18 Oct 2026",
+          "seats": "6 seats left",
+          "status": "Filling fast"
+        },
+        {
+          "date": "30 Oct 2026",
+          "seats": "10 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "13 Nov 2026",
+          "seats": "14 seats left",
+          "status": "Available"
+        }
+      ],
+      "safety": [
+        "Konglak trail requires comfortable walking shoes and normal fitness.",
+        "Travellers with serious motion sickness should seek medical advice.",
+        "The schedule may change with local administration or weather instructions."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    },
+    "travelerReview": {
+      "name": "Arif Rahman",
+      "initials": "AR",
+      "destination": "Cox’s Bazar Family Escape",
+      "rating": "4.9",
+      "image": "/assets/Coxs/cover-1.jpg",
+      "review": "The hotel, transport and meal details matched the package. Our family could plan the whole weekend confidently before confirming the booking."
+    }
+  },
+  {
+    "id": 3,
+    "slug": "sylhet-tea-garden-journey",
+    "title": "Sylhet Tea Garden Journey",
+    "destination": "Sylhet",
+    "subtitle": "Tea estates, waterfalls & green valleys",
+    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1400&auto=format&fit=crop",
+    "duration": "3 Days · 2 Nights",
+    "people": "2–4 People",
+    "price": 11000,
+    "company": "Green Valley Travel",
+    "description": "Discover the green landscapes of Sylhet with tea gardens, peaceful countryside, local food and selected attractions.",
+    "includes": [
+      "Hotel stay",
+      "Breakfast",
+      "Transport",
+      "Tea garden visit",
+      "Selected sightseeing"
+    ],
+    "rating": 4.9,
+    "reviews": 77,
+    "tag": "Nature break",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 3,
+    "experience": {
+      "category": "Nature & Culture",
+      "rating": 4.9,
+      "reviews": 77,
+      "highlights": [
+        "Jaflong",
+        "Ratargul",
+        "Tea Garden",
+        "Lalakhal"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Sylhet/cover-1.jpg",
+          "label": "Green Sylhet",
+          "alt": "Sylhet landscape"
+        },
+        {
+          "src": "/assets/Sylhet/resort/Premium Resort.jfif",
+          "label": "Your stay",
+          "alt": "Sylhet resort"
+        },
+        {
+          "src": "/assets/Sylhet/taste/Traditional Thali.jfif",
+          "label": "Local food",
+          "alt": "Traditional meal"
+        },
+        {
+          "src": "/assets/Sylhet/thinking/Sightseeing.jfif",
+          "label": "Experience",
+          "alt": "Sylhet sightseeing"
+        }
+      ],
+      "dayTitles": [
+        "Arrival and tea country",
+        "Jaflong and Lalakhal",
+        "Ratargul and departure"
+      ],
+      "accommodation": {
+        "name": "Green Leaf Hotel or equivalent",
+        "type": "Deluxe city hotel · 2 nights",
+        "room": "Twin or triple sharing based on group size",
+        "amenities": [
+          "Wi-Fi",
+          "Air conditioning",
+          "Hot water",
+          "Breakfast",
+          "24-hour reception"
+        ]
+      },
+      "transport": {
+        "name": "Reserved AC coach + local microbus",
+        "type": "Dhaka return transport and full-day sightseeing",
+        "details": [
+          "2+2 reclining seats",
+          "Microbus for local routes",
+          "Route-experienced driver",
+          "Life jackets on boat trips"
+        ]
+      },
+      "pickup": "Sayedabad, Dhaka",
+      "batches": [
+        {
+          "date": "02 Nov 2026",
+          "seats": "4 seats left",
+          "status": "Filling fast"
+        },
+        {
+          "date": "16 Nov 2026",
+          "seats": "11 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "04 Dec 2026",
+          "seats": "15 seats left",
+          "status": "Available"
+        }
+      ],
+      "safety": [
+        "Boat visits depend on water level and weather clearance.",
+        "Children must wear life jackets during approved boat activities.",
+        "Carry sun and rain protection because weather changes quickly."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    },
+    "travelerReview": {
+      "name": "Tanvir & Mim",
+      "initials": "TM",
+      "destination": "Sylhet Tea Garden Journey",
+      "rating": "4.8",
+      "image": "/assets/Sylhet/cover-1.jpg",
+      "review": "A beautifully paced trip with clear support whenever we needed it. The tea-garden route and local sightseeing were the highlights for us."
+    }
+  },
+  {
+    "id": 4,
+    "slug": "saint-martin-island-retreat",
+    "title": "Saint Martin Island Retreat",
+    "destination": "Saint Martin",
+    "subtitle": "Blue water, island evenings & fresh seafood",
+    "image": "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=1400&auto=format&fit=crop",
+    "duration": "4 Days · 3 Nights",
+    "people": "2–4 People",
+    "price": 17500,
+    "oldPrice": 20000,
+    "company": "Ocean Trip BD",
+    "description": "Spend a few peaceful days beside the sea with island exploration, comfortable accommodation and relaxed evenings.",
+    "includes": [
+      "Hotel / resort stay",
+      "Ship tickets",
+      "Island sightseeing",
+      "Selected meals",
+      "Travel assistance"
+    ],
+    "rating": 4.9,
+    "reviews": 106,
+    "tag": "Island escape",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 4,
+    "experience": {
+      "category": "Island & Relaxation",
+      "rating": 4.9,
+      "reviews": 106,
+      "highlights": [
+        "Jetty Beach",
+        "West Beach",
+        "Chera Dwip",
+        "Island cycling"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Saintmartin/cover-1.jpg",
+          "label": "Island view",
+          "alt": "Saint Martin island"
+        },
+        {
+          "src": "/assets/Saintmartin/resort/Premium Resort.avif",
+          "label": "Your stay",
+          "alt": "Island resort"
+        },
+        {
+          "src": "/assets/Saintmartin/taste/BBQ Dinner.jpg",
+          "label": "Seafood night",
+          "alt": "Island barbecue"
+        },
+        {
+          "src": "/assets/Saintmartin/Thinking/Sightseeing.webp",
+          "label": "Experience",
+          "alt": "Island sightseeing"
+        }
+      ],
+      "dayTitles": [
+        "Dhaka to Teknaf",
+        "Sail to the island",
+        "Island exploration",
+        "Return journey"
+      ],
+      "accommodation": {
+        "name": "Blue Marine Resort or equivalent",
+        "type": "Standard sea-side resort · 3 nights",
+        "room": "Double or triple sharing with attached bathroom",
+        "amenities": [
+          "Sea-side location",
+          "Balcony",
+          "Attached bathroom",
+          "Generator backup",
+          "Dining area"
+        ]
+      },
+      "transport": {
+        "name": "AC coach + registered passenger ship",
+        "type": "Road, ship and island transfer",
+        "details": [
+          "Reserved coach seat",
+          "Ship chair/deck ticket",
+          "Jetty assistance",
+          "Local luggage transfer"
+        ]
+      },
+      "pickup": "Arambagh, Dhaka",
+      "batches": [
+        {
+          "date": "06 Nov 2026",
+          "seats": "8 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "20 Nov 2026",
+          "seats": "5 seats left",
+          "status": "Filling fast"
+        },
+        {
+          "date": "11 Dec 2026",
+          "seats": "13 seats left",
+          "status": "Available"
+        }
+      ],
+      "safety": [
+        "Sailing and Chera Dwip visits depend on government permission and sea conditions.",
+        "Travellers with serious seasickness should consult a doctor before booking.",
+        "Children must remain with guardians near the water at all times."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "slug": "bandarban-hill-journey",
+    "title": "Bandarban Hill Journey",
+    "destination": "Bandarban",
+    "subtitle": "Hill roads, viewpoints & local culture",
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1400&auto=format&fit=crop",
+    "duration": "3 Days · 2 Nights",
+    "people": "3–6 People",
+    "price": 13500,
+    "company": "Explore Bangladesh",
+    "description": "Explore Bandarban’s hills, scenic roads and viewpoints through a carefully planned adventure package.",
+    "includes": [
+      "Hotel accommodation",
+      "Local transportation",
+      "Hill sightseeing",
+      "Guide assistance",
+      "Selected meals"
+    ],
+    "rating": 4.8,
+    "reviews": 68,
+    "tag": "Adventure",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 5,
+    "experience": {
+      "category": "Adventure & Trekking",
+      "rating": 4.8,
+      "reviews": 68,
+      "highlights": [
+        "Nilachal",
+        "Meghla",
+        "Chimbuk",
+        "Nilgiri"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Bandarban/images 2.jfif",
+          "label": "Hill view",
+          "alt": "Bandarban hills"
+        },
+        {
+          "src": "/assets/Bandarban/Resort/Sairu Hill Resort.jfif",
+          "label": "Your stay",
+          "alt": "Hill resort"
+        },
+        {
+          "src": "/assets/Bandarban/Taste/Bamboo Chicken.jfif",
+          "label": "Pahari food",
+          "alt": "Bamboo chicken"
+        },
+        {
+          "src": "/assets/Bandarban/Thinking/Sightseeing.jpg",
+          "label": "Experience",
+          "alt": "Bandarban sightseeing"
+        }
+      ],
+      "dayTitles": [
+        "Arrival and Nilachal",
+        "Chimbuk and Nilgiri",
+        "Town morning and return"
+      ],
+      "accommodation": {
+        "name": "Hill Crown Hotel or equivalent",
+        "type": "Standard or deluxe hill hotel · 2 nights",
+        "room": "Double or 3–4 people sharing",
+        "amenities": [
+          "Wi-Fi",
+          "Hot water",
+          "Air conditioning",
+          "Hill-facing room option",
+          "Restaurant"
+        ]
+      },
+      "transport": {
+        "name": "AC coach + reserved Chander Gari",
+        "type": "Highway coach and hill-route 4×4",
+        "details": [
+          "Reserved coach seat",
+          "12–14 people per hill vehicle",
+          "Licensed local driver",
+          "Security checkpoints"
+        ]
+      },
+      "pickup": "Fakirapool, Dhaka",
+      "batches": [
+        {
+          "date": "09 Oct 2026",
+          "seats": "7 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "23 Oct 2026",
+          "seats": "3 seats left",
+          "status": "Filling fast"
+        },
+        {
+          "date": "13 Nov 2026",
+          "seats": "12 seats left",
+          "status": "Available"
+        }
+      ],
+      "safety": [
+        "Hill routes may change under local administration instructions.",
+        "Not every viewpoint is wheelchair accessible.",
+        "Carry prescribed medicine and inform the coordinator about health concerns."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "slug": "sundarbans-wildlife-tour",
+    "title": "Sundarbans Wildlife Tour",
+    "destination": "Sundarbans",
+    "subtitle": "River cruise, forest trails & wildlife",
+    "image": "https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1400&auto=format&fit=crop",
+    "duration": "3 Days · 2 Nights",
+    "people": "4–8 People",
+    "price": 14500,
+    "company": "Nature Explorer BD",
+    "description": "Experience the Sundarbans with river journeys, mangrove landscapes and guided wildlife exploration.",
+    "includes": [
+      "Boat accommodation",
+      "Meals",
+      "Forest permits",
+      "Guide",
+      "River sightseeing"
+    ],
+    "rating": 4.7,
+    "reviews": 59,
+    "tag": "Wildlife",
+    "featured": true,
+    "upcoming": false,
+    "active": true,
+    "sortOrder": 6,
+    "experience": {
+      "category": "Wildlife & Nature",
+      "rating": 4.7,
+      "reviews": 59,
+      "highlights": [
+        "Kotka",
+        "Kochikhali",
+        "Harbaria",
+        "Mangrove creeks"
+      ],
+      "gallery": [
+        {
+          "src": "/assets/Sundarban/cover-1.jpg",
+          "label": "Mangrove view",
+          "alt": "Sundarbans mangrove"
+        },
+        {
+          "src": "/assets/Sundarban/Resort/Eco Lodge.jpg",
+          "label": "Your stay",
+          "alt": "Forest accommodation"
+        },
+        {
+          "src": "/assets/Sundarban/Taste/Traditional Thali.jpeg",
+          "label": "On-board meal",
+          "alt": "Traditional meal"
+        },
+        {
+          "src": "/assets/Sundarban/thinking/Sightseeing.webp",
+          "label": "Experience",
+          "alt": "Mangrove sightseeing"
+        }
+      ],
+      "dayTitles": [
+        "Board and enter the forest",
+        "Kotka and Kochikhali",
+        "Harbaria and return"
+      ],
+      "accommodation": {
+        "name": "Licensed tourist vessel",
+        "type": "Twin or bunk cabin · 2 nights on board",
+        "room": "Shared cabin with clean bedding and washroom access",
+        "amenities": [
+          "Life jackets",
+          "Generator schedule",
+          "Filtered water",
+          "On-board kitchen",
+          "First-aid box"
+        ]
+      },
+      "transport": {
+        "name": "Tourist vessel + permitted creek boat",
+        "type": "Main river vessel and small excursion boat",
+        "details": [
+          "Certified life jackets",
+          "Experienced crew",
+          "Forest permit support",
+          "Approved creek routes"
+        ]
+      },
+      "pickup": "Khulna Railway Station / Mongla Jetty",
+      "batches": [
+        {
+          "date": "16 Oct 2026",
+          "seats": "8 seats left",
+          "status": "Available"
+        },
+        {
+          "date": "06 Nov 2026",
+          "seats": "5 seats left",
+          "status": "Filling fast"
+        },
+        {
+          "date": "04 Dec 2026",
+          "seats": "14 seats left",
+          "status": "Available"
+        }
+      ],
+      "safety": [
+        "Instructions from the guide and forest guard are mandatory.",
+        "Wildlife sightings are natural and cannot be guaranteed.",
+        "Routes may change with tide, fog, weather or Forest Department instructions."
+      ],
+      "excluded": [
+        "Personal shopping, snacks and minibar costs",
+        "Special rides, water sports or optional activities",
+        "Transport used outside the published itinerary",
+        "Travel insurance and emergency medical expenses"
+      ],
+      "packing": [
+        "Original NID / smartcard or a clear copy",
+        "Comfortable walking or trekking shoes",
+        "Personal medicine and basic first aid",
+        "Power bank, charging cable and small torch",
+        "Light jacket, rain cover and reusable water bottle",
+        "Small backpack and personal toiletries"
+      ],
+      "policies": [
+        [
+          "15+ days before departure",
+          "90% refund"
+        ],
+        [
+          "8–14 days before departure",
+          "70% refund"
+        ],
+        [
+          "4–7 days before departure",
+          "40% refund"
+        ],
+        [
+          "Within 72 hours / no-show",
+          "Non-refundable"
+        ]
+      ],
+      "faqs": [
+        [
+          "How much advance is needed?",
+          "Submit your request first. After checking availability, the operator will share the payable advance, normally up to 50%, before confirmation."
+        ],
+        [
+          "Can I request a private room?",
+          "Yes, subject to availability. Mention it in the request form and the operator will confirm any price difference."
+        ],
+        [
+          "Can children or senior travellers join?",
+          "They can join suitable packages. Check the safety notes and mention age, mobility or health needs in your request."
+        ],
+        [
+          "Can the itinerary change?",
+          "Small changes may be required because of weather, traffic, local permission or safety instructions."
+        ],
+        [
+          "Is my seat confirmed immediately?",
+          "No. A request is confirmed only after availability review and successful payment."
+        ]
+      ]
+    }
+  },
+  {
+    "id": 101,
+    "slug": "sajek-autumn-group-tour",
+    "title": "Sajek Autumn Group Tour",
+    "destination": "Sajek Valley",
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1000&auto=format&fit=crop",
+    "startDate": "18 Oct 2026",
+    "duration": "2 Days · 1 Night",
+    "seatsLeft": 6,
+    "price": 7200,
+    "company": "Hill Track Tours",
+    "sourceSlug": "sajek-cloud-adventure",
+    "featured": false,
+    "upcoming": true,
+    "active": true,
+    "sortOrder": 101
+  },
+  {
+    "id": 102,
+    "slug": "coxs-bazar-weekend-tour",
+    "title": "Cox’s Bazar Weekend Tour",
+    "destination": "Cox’s Bazar",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop",
+    "startDate": "24 Oct 2026",
+    "duration": "3 Days · 2 Nights",
+    "seatsLeft": 9,
+    "price": 9800,
+    "company": "Travel Bangladesh",
+    "sourceSlug": "coxs-bazar-family-escape",
+    "featured": false,
+    "upcoming": true,
+    "active": true,
+    "sortOrder": 102
+  },
+  {
+    "id": 103,
+    "slug": "sylhet-green-escape",
+    "title": "Sylhet Green Escape",
+    "destination": "Sylhet",
+    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1000&auto=format&fit=crop",
+    "startDate": "02 Nov 2026",
+    "duration": "3 Days · 2 Nights",
+    "seatsLeft": 4,
+    "price": 10500,
+    "company": "Green Valley Travel",
+    "sourceSlug": "sylhet-tea-garden-journey",
+    "featured": false,
+    "upcoming": true,
+    "active": true,
+    "sortOrder": 103
+  }
+]
