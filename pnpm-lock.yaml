@@ -35,9 +35,18 @@ importers:
       mongodb:
         specifier: ^7.5.0
         version: 7.6.0
+      multer:
+        specifier: ^2.3.0
+        version: 2.4.0
       nodemailer:
         specifier: ^9.0.5
         version: 9.1.1
+      openai:
+        specifier: ^7.15.0
+        version: 7.15.0(ws@8.21.3)(zod@4.6.5)
+      zod:
+        specifier: ^4.6.2
+        version: 4.6.5
     devDependencies:
       '@types/bcryptjs':
         specifier: ^2.4.6
