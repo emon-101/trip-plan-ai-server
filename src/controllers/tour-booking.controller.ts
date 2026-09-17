@@ -34,7 +34,7 @@ export const createTourBooking = (db: Db) => async (req: Request, res: Response)
 
 export const getBookingById = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     if (!id || !ObjectId.isValid(id as string)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });
     }
@@ -117,11 +117,9 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
   }
 };
 
-// Confirm Payment (Mock Endpoint)
-export const confirmPayment = (db: Db) => {
-  return async (req: Request, res: Response): Promise<void> => {
-    try {
-      const { bookingId } = req.params;
+export const confirmPayment = (db: Db) => async (req: Request, res: Response) => {
+  try {
+    const { bookingId } = req.params;
 
       const result = await db.collection("tour-bookings").updateOne(
         { _id: new ObjectId(bookingId as string) },
