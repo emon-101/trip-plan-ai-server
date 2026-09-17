@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { aiRouter } from "./routes/ai.route";
 import express, { NextFunction, Request, Response } from "express";
 import { MongoClient, Db } from "mongodb";
 import cors from "cors";
@@ -115,8 +116,8 @@ async function start() {
     console.log("MongoDB connected");
     app.use("/api/ai", aiRouter(db));
 
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
+    app.listen(PORT as number, "0.0.0.0", () => {
+      console.log(`Server running on http://0.0.0.0:${PORT}`);
     });
   } catch (err) {
     console.error("Failed to start server:", err);
