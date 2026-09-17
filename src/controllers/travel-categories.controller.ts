@@ -32,7 +32,7 @@ export const createTravelCategory = (db: Db) => async (req: Request, res: Respon
 
 export const updateTravelCategory = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const data = req.body;
     delete data._id; // prevent updating _id
     
@@ -54,7 +54,7 @@ export const updateTravelCategory = (db: Db) => async (req: Request, res: Respon
 
 export const deleteTravelCategory = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const result = await db.collection("TravelCategories").deleteOne({ _id: new ObjectId(id) });
     
     if (result.deletedCount === 0) {

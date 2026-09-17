@@ -17,7 +17,7 @@ export const getTrips = (db: Db) => async (req: Request, res: Response) => {
 
 export const getTripById = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     let query;
     try {
       query = { _id: new ObjectId(id) };
@@ -75,7 +75,7 @@ export const createTrip = (db: Db) => async (req: Request, res: Response) => {
 
 export const updateTrip = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const data = req.body;
     delete data._id; // prevent updating _id
     
@@ -104,7 +104,7 @@ export const updateTrip = (db: Db) => async (req: Request, res: Response) => {
 
 export const deleteTrip = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     
     let query;
     try {

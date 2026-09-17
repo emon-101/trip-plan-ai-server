@@ -34,7 +34,7 @@ export const createTourBooking = (db: Db) => async (req: Request, res: Response)
 
 export const getBookingById = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     if (!id || !ObjectId.isValid(id)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });
     }
@@ -90,7 +90,7 @@ export const getUserBookings = (db: Db) => async (req: Request, res: Response) =
 
 export const initiatePayment = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { bookingId } = req.params;
+    const bookingId = String(req.params.bookingId);
 
     if (!bookingId || !ObjectId.isValid(bookingId)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });
@@ -131,7 +131,7 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
 
 export const confirmPayment = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { bookingId } = req.params;
+    const bookingId = String(req.params.bookingId);
 
     if (!bookingId || !ObjectId.isValid(bookingId)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });

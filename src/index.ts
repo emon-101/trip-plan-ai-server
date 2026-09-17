@@ -1,10 +1,8 @@
-import { aiRouter } from "./routes/ai.route";
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import { MongoClient, Db } from "mongodb";
 import cors from "cors";
-import { toNodeHandler } from "better-auth/node";
-import { auth } from "./config/auth";
+import { authRuntimePromise } from "./config/auth";
 import "dotenv/config";
 import { aiRouter } from "./routes/ai.route";
 
@@ -45,10 +43,13 @@ app.use((req, _res, next) => {
   next();
 });
 
-const authHandler = toNodeHandler(auth);
+const authHandlerPromise = authRuntimePromise.then(({ auth, toNodeHandler }) =>
+  toNodeHandler(auth)
+);
 
 app.all("/api/auth/*path", async (req, res, next) => {
   try {
+    const authHandler = await authHandlerPromise;
     await authHandler(req, res);
   } catch (error) {
     console.error("[Better Auth Error]", error);

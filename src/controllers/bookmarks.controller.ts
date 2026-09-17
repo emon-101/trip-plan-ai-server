@@ -33,7 +33,7 @@ export const createBookmark = (db: Db) => async (req: Request, res: Response) =>
 
 export const deleteBookmark = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const result = await db.collection("bookmarks").deleteOne({ _id: new ObjectId(id) });
     
     if (result.deletedCount === 0) {
