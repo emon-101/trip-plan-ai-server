@@ -82,7 +82,7 @@ export const createReview = (db: Db) => async (req: Request, res: Response) => {
 
 export const updateReviewStatus = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const { status } = req.body;
     
     const result = await db.collection("reviews").updateOne(
@@ -103,7 +103,7 @@ export const updateReviewStatus = (db: Db) => async (req: Request, res: Response
 
 export const deleteReview = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const result = await db.collection("reviews").deleteOne({ _id: new ObjectId(id) });
     
     if (result.deletedCount === 0) {

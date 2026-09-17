@@ -93,7 +93,7 @@ export const createStory = (db: Db) => async (req: Request, res: Response) => {
 
 export const updateStoryStatus = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     const { status } = req.body;
     const result = await db.collection("stories").updateOne(
       { _id: new ObjectId(id) },
@@ -112,7 +112,7 @@ export const updateStoryStatus = (db: Db) => async (req: Request, res: Response)
 
 export const deleteStory = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     await db.collection("stories").deleteOne({ _id: new ObjectId(id) });
     res.status(200).json({ success: true, message: "Story deleted" });
   } catch (error) {

@@ -39,7 +39,7 @@ export const getUnreadCount = (db: Db) => async (req: Request, res: Response) =>
 // PATCH /api/notifications/:id/read
 export const markAsRead = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     let result = await db.collection("notifications").updateOne(
       { _id: new ObjectId(id) },
       { $set: { isRead: true } }
@@ -82,7 +82,7 @@ export const markAllAsRead = (db: Db) => async (req: Request, res: Response) => 
 // DELETE /api/notifications/:id
 export const deleteNotification = (db: Db) => async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = String(req.params.id);
     let result = await db.collection("notifications").deleteOne({ _id: new ObjectId(id) });
     
     if (result.deletedCount === 0) {
