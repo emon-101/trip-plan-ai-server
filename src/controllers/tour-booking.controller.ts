@@ -35,10 +35,10 @@ export const createTourBooking = (db: Db) => async (req: Request, res: Response)
 export const getBookingById = (db: Db) => async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    if (!id || !ObjectId.isValid(id)) {
+    if (!id || !ObjectId.isValid(id as string)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });
     }
-    const booking = await db.collection("tour-bookings").findOne({ _id: new ObjectId(id) });
+    const booking = await db.collection("tour-bookings").findOne({ _id: new ObjectId(id as string) });
     if (!booking) {
       return res.status(404).json({ success: false, message: "Booking not found" });
     }
@@ -60,12 +60,10 @@ export const getUserBookings = (db: Db) => async (req: Request, res: Response) =
     const { email } = req.query;
 
     let query: any = {};
-    if (email && userId && userId !== "mockId") {
-      query = { $or: [{ "customer.email": email }, { userId: userId }] };
+    if (userId) {
+      query = { userId: userId };
     } else if (email) {
       query = { "customer.email": email as string };
-    } else if (userId && userId !== "mockId") {
-      query = { userId: userId };
     }
 
     const bookings = await db.collection("tour-bookings")
@@ -87,11 +85,11 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
   try {
     const { bookingId } = req.params;
 
-    if (!bookingId || !ObjectId.isValid(bookingId)) {
+    if (!bookingId || !ObjectId.isValid(bookingId as string)) {
       return res.status(400).json({ success: false, message: "Invalid booking ID" });
     }
 
-    const booking = await db.collection("tour-bookings").findOne({ _id: new ObjectId(bookingId) });
+    const booking = await db.collection("tour-bookings").findOne({ _id: new ObjectId(bookingId as string) });
 
     if (!booking) {
       return res.status(404).json({ success: false, message: "Booking not found" });
@@ -104,7 +102,7 @@ export const initiatePayment = (db: Db) => async (req: Request, res: Response) =
     const mockPaymentUrl = `/dashboard/my-bookings?payment=success&bookingId=${bookingId}`;
 
     await db.collection("tour-bookings").updateOne(
-      { _id: new ObjectId(bookingId) },
+      { _id: new ObjectId(bookingId as string) },
       { $set: { paymentStatus: "Processing" } }
     );
 
@@ -126,7 +124,7 @@ export const confirmPayment = (db: Db) => {
       const { bookingId } = req.params;
 
       const result = await db.collection("tour-bookings").updateOne(
-        { _id: new ObjectId(bookingId) },
+        { _id: new ObjectId(bookingId as string) },
         { 
           $set: { 
             paymentStatus: "Paid",
