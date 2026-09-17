@@ -143,7 +143,6 @@ export const confirmPayment = (db: Db) => async (req: Request, res: Response) =>
       res.status(500).json({ success: false, message: "Internal server error" });
     }
   };
-};
 
 // Get All Bookings for Admin
 export const getAllBookings = (db: Db) => {
